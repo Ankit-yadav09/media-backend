@@ -2,6 +2,7 @@ const express = require("express");
 const {MediaModel} = require("./models/Media.model")
 const {connection} = require("./configs/db")
 const jwt = require("jsonwebtoken");
+require("dotenv").config()
 
 const app = express();
 app.use(express.json());
@@ -46,5 +47,5 @@ app.listen(process.env.port,async()=>{
         console.log("Error in connection")
         console.log(err)
     }
-    console.log("Server started at 8000");
+    console.log(`Server started at ${process.env.port}`);
 })
